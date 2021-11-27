@@ -2,8 +2,9 @@
 import os
 import pygame
 from pygame.locals import *
-import sklearn
+# import sklearn
 from character import player
+import sys
 
 # if not pg.font:
 #     print("Warning, fonts disabled")
