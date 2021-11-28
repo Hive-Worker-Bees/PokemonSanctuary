@@ -82,7 +82,6 @@ class Explore():
                     # A Pokemon was clicked, so open the combat screen
                     self.parent.receive_data([self.player, self.pokemon])
                     self.parent.change_state(1)
-                    # self.combat = Combat(self.screen, self.player, self.pokemon)
 
         # Handle a keypress starting
         if event.type == pygame.KEYDOWN:
@@ -189,27 +188,12 @@ class Explore():
         """
         Renders the GUI
         """
-        # Render exploring screen
-        # if self.state == "exploring":
         # Draw map background
         self.screen.blit(self.map_background, (0, 0))
         # Draw player
         self.player_list.draw(self.screen)
         # Draw Pokemon
         self.pokemon_list.draw(self.screen)
-        # elif self.state == "combat":
-        #     if self.combat.finished:
-        #         # Wait 2 seconds after end of combat to change states
-        #         pygame.time.wait(2000)
-        #         # Reset textbox after combat
-        #         self.textbox = TextBox(self.screen)
-        #         # Change state to exploring
-        #         self.state = "exploring"
-        #         return
-        #     # Draw combat background
-        #     self.screen.blit(self.combat.combat_surface, (0, 0))
-        #     # Run combat
-        #     self.combat.update_combat(self.screen)
 
         # Draw mouse custom cursor
         if pygame.mouse.get_pos()[1] < 385:

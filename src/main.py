@@ -17,8 +17,10 @@ class App:
         """
         Update the state of the app (essentially changes the window displayed)
         """
+        # Set new state
         self._state = state
 
+        # Set all methods to methods belonging to window
         self.on_init = self._windows[state].on_init
         self.on_event = self._windows[state].on_event
         self.on_loop = self._windows[state].on_loop
@@ -26,10 +28,14 @@ class App:
         self.on_cleanup = self._windows[state].on_cleanup
         self.on_execute = self._windows[state].on_execute
 
+        # Restart game loop
         self._running = False
         self.on_execute()
         
     def receive_data(self, data):
+        """
+        Receives data from a window so data can be transferred between windows
+        """
         self.data = data
 
     def on_init(self):
