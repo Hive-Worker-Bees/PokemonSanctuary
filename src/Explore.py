@@ -12,7 +12,8 @@ import PokemonManager
 
 
 class Explore():
-    def __init__(self):
+    def __init__(self, parent):
+        self.parent = parent
         self._running = True
         self.screen = None
         self.map_background = None
@@ -79,8 +80,9 @@ class Explore():
                 pokemon_y = self.pokemon.rect.y
                 if pokemon_x < event.pos[0] < pokemon_x + 30 and pokemon_y < event.pos[1] < pokemon_y + 30:
                     # A Pokemon was clicked, so open the combat screen
-                    self.state = "combat"
-                    self.combat = Combat(self.screen, self.player, self.pokemon)
+                    self.parent.receive_data([self.player, self.pokemon])
+                    self.parent.change_state(1)
+                    # self.combat = Combat(self.screen, self.player, self.pokemon)
 
         # Handle a keypress starting
         if event.type == pygame.KEYDOWN:

@@ -9,7 +9,7 @@ from Explore import Explore
 class App:
     def __init__(self):
         self._state = None
-        self._windows = [Explore()]
+        self._windows = [Explore(self), Combat(self)]
 
         self.change_state(0)
 
@@ -25,9 +25,12 @@ class App:
         self.on_render = self._windows[state].on_render
         self.on_cleanup = self._windows[state].on_cleanup
         self.on_execute = self._windows[state].on_execute
+
+        self._running = False
+        self.on_execute()
         
-    def add_window(self, window):
-        self._windows.append(window)
+    def receive_data(self, data):
+        self.data = data
 
     def on_init(self):
         """
