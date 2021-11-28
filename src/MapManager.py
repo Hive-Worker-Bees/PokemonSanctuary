@@ -248,9 +248,7 @@ spawn = Background(
         [245, 290],
         [245, 205]
     ],
-    [
-        InterestingRegion("Lower Right Clicked", 200, 200, 400, 400)
-    ],
+    [],
     [
         [160, 40, 240, 115],
         [190, 220, 225, 250]
